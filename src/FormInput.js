@@ -5,10 +5,10 @@ function FormInput(props) {
         
           <input 
                   type="input"
-                  name="input"
+                  name={props.name}
                   id="username"
                   aria-describedby="input"
-                  placeholder="Enter name of speices"
+                  placeholder="Enter name of species"
                   onChange={props.onChange}
                   value={props.input}
           />
