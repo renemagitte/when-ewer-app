@@ -12,9 +12,11 @@ class App extends Component {
         view: 'listOfPlants'
     }
 
+    
     plants = [
-        {species: "kaktus", desription: "taggig", image: img1 },
-        {species: "elefantöra", desription: "runda blad", image: img1}
+        /* 'lastWatered' & 'waterInterval' is set in Unix time in array */
+        {species: "kaktus", desription: "taggig", image: img1, lastWatered: '50000', waterInterval: '500' },
+        {species: "elefantöra", desription: "runda blad", image: img1, lastWatered: '70000000000', waterInterval: '600'}
     ]
 
     setView = (requestedView) => {
@@ -22,7 +24,7 @@ class App extends Component {
     }
 
     addNewPlant = (speciesInput, descriptionInput) => {
-        let newPlant = {species: speciesInput, description: descriptionInput}
+        let newPlant = {species: speciesInput, description: descriptionInput, image: img1, lastWatered: Date.now(),}
         this.plants.push(newPlant);
         
         this.setView('listOfPlants');

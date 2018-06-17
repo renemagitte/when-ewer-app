@@ -4,18 +4,24 @@ import './css/style.css';
 
 class WaterLevel extends Component {
     
-//    state = {
-//        input: '',
-//    }
-//
-//    componentDidMount(){
-//        this.setState({ 
-//            name: this.props.item.name,
-//        })
-//    }
+    state = {
+        lastWatered: '',
+        waterInterval: ''
+    }
+
+    componentDidMount(){
+        this.setState({ 
+            lastWatered: this.props.lastWatered,
+            waterInterval: this.props.waterInterval
+        })
+    }
+    
+
+//let ONE_DAY = 86400000; // one day in milliseconds/unixtime
 
     
   render() {
+      
     return (
         <div className="waterLevelWrapper">
             <div className="waterLevel1"></div>

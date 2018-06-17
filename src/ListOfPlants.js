@@ -23,10 +23,10 @@ class ListOfPlants extends Component {
                     </div>
                     <div className="onePlantText">
                         <div className="onePlantSpecies">
-                            {plantsArray[i].species}
+                            {plantsArray[i].species} , {plantsArray[i].lastWatered}
                         </div>
                         <div>
-                            <WaterLevel />
+                            <WaterLevel lastWatered={plantsArray[i].lastWatered} waterInterval={plantsArray[i].waterInterval} />
                         </div>
                     </div>
                 </div>
