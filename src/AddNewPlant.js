@@ -63,6 +63,7 @@ class AddNewPlant extends Component {
                             <i className="fas fa-camera cameraIcon"></i>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-info" onClick={this.setFormStep}>Hoppa över</button>
                 </form>
             </React.Fragment>
       }

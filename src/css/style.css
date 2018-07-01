@@ -1,4 +1,4 @@
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {*/
 
 html, body {
 /*    font-family: 'Imprima', sans-serif;*/
@@ -20,8 +20,8 @@ html, body {
         font-weight: 300;
     }
     
-    .addPlantButton{
-        background-color: green;
+    .roundify{
+        border-radius: 50px;
     }
 
     .frame{
@@ -133,6 +133,10 @@ html, body {
         border-bottom-right-radius: 20px;
     }
     
+    .waterLevelEmpty{
+        background-color: #ffffff !important;
+    }
+    
     
 /***** Add new plant ****/
     
@@ -196,6 +200,15 @@ html, body {
         font-size: 50px;
         color: darkgrey;
         margin: 10px;
+    }
+    
+/*}*/
+
+@media screen and (min-width: 601px) {
+    
+    .frame{
+        width: 375px;
+        height: 667px;
     }
     
 }

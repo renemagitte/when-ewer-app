@@ -11,11 +11,13 @@ class ListOfPlants extends Component {
         input: '',
     }
 
+
     createListOfPlants = () => {
         let plantsArray = this.props.plants;
         let onePlantHeading = [];  
         
         for (let i = 0; i < plantsArray.length; i++) {
+            
             onePlantHeading.push(
                 <div className="onePlantWrapper">
                     <div className="onePlantImg">
@@ -26,7 +28,9 @@ class ListOfPlants extends Component {
                             {plantsArray[i].species} , {plantsArray[i].lastWatered}
                         </div>
                         <div>
-                            <WaterLevel lastWatered={plantsArray[i].lastWatered} waterInterval={plantsArray[i].waterInterval} />
+                            <WaterLevel lastWatered={plantsArray[i].lastWatered} 
+                                        waterInterval={plantsArray[i].waterInterval}
+                                        setView={this.props.setView}/>
                         </div>
                     </div>
                 </div>
