@@ -4,7 +4,11 @@ import AddNewPlant from './AddNewPlant';
 import OnePlant from './OnePlant';
 import ListOfPlants from './ListOfPlants';
 
+import handWatch from './img/handWatch.png';
+import ewer from './img/ewer.png';
+
 import img1 from './img/pelargon.jpg';
+import img2 from './img/elefantora.jpg';
 
 class App extends Component {
     
@@ -17,16 +21,18 @@ class App extends Component {
         /* The two first objects are example objects.
         /* 'lastWatered' & 'waterInterval' is set in Unix time in array */
         {
-            species: "kaktus", 
+            species: "Kaktus", 
+            latinName: "kaktus", 
             desription: "taggig", 
             image: img1, 
-            lastWatered: ((new Date().getTime()) - (1000*60*60*24*7)), // watered 7 days ago
+            lastWatered: ((new Date().getTime()) - (1000*60*60*24*1)), // watered 7 days ago
             waterInterval: 1000*60*60*24*14 // water every 14 days 
         },
         {
-            species: "elefantöra", 
+            species: "Elefantöra", 
+            latinName: "kaktus", 
             desription: "runda blad", 
-            image: img1, 
+            image: img2, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*3)),  // watered 3 days ago
             waterInterval: 1000*60*60*24*5 // water every 5 days
         }
@@ -66,19 +72,53 @@ class App extends Component {
     }
       
     return (
+        
+        <React.Fragment>
+                <div className="headingWrapper">
+                <div className="heading">
+                    <div className="headingLeft">
+                        <img src={handWatch} />
+                    </div>
+                    <div className="appName">
+                        When<br/>
+                        ewer
+                    </div>
+                    <div className="headingRight">
+                        <img src={ewer} />
+        
+                    </div>
+                </div>
+                </div>
+        
+        
+        <div className="desktopField">
+        
+
+
+        
         <div className="frame">
+        
+        
+        
             <div className="wrapper">
                 <div className="content">
-                    Whenewer
-        <button type="button" className="btn btn-success roundify" onClick={() => this.setView('addNewPlant')}>
+                
+        
+        <ion-icon name="add-circle" onClick={() => this.setView('addNewPlant')}></ion-icon>
+        
+        
+{ /* <button type="button" className="btn btn-success roundify" onClick={() => this.setView('addNewPlant')}> 
                         +
-                    </button>
+                    </button><br/> */ }
                     
                 { view }
                     
                 </div>
             </div>
         </div>
+        </div>
+
+</React.Fragment>
         
     );
   }

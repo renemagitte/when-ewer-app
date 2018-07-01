@@ -1,3 +1,18 @@
+.desktopField{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    
+}
+
+
+.frame{
+        -webkit-box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
+    -moz-box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
+    box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);    
+}
+
 /*@media screen and (max-width: 600px) {*/
 
 html, body {
@@ -24,6 +39,50 @@ html, body {
         border-radius: 50px;
     }
 
+    .heading{
+/*        border: 1px solid red;*/
+        width: 406px;
+        z-index: 99;
+        position: fixed;
+        left: 0px;
+        display: flex;
+        flex-direction: row;
+        font-family: 'Spirax', cursive;
+    }
+    
+        .headingLeft{
+            width: 140px;
+/*
+            margin-top: -20px;
+            margin-left: -20px;
+*/
+/*            border: 1px solid hotpink;*/
+            align-self: flex-start;
+        }
+        .headingLeft img{
+            width: 140px;
+        }
+
+        .appName{
+            width: 146px;
+            text-align: center;
+/*            border: 1px solid green;*/
+            align-self: center;
+            font-size: 2.8em;
+            line-height: 1;
+        }
+
+        .headingRight{
+            width: 120px;
+/*            border: 1px solid hotpink;*/
+            align-self: flex-end;
+            margin-top: -20px;
+        }
+        .headingRight img{
+            height: 120px;
+        }
+
+
     .frame{
         width: 100%;
         height: 100vh;
@@ -31,33 +90,39 @@ html, body {
         display: flex;
         justify-content: space-around;
         padding-top: 20px;
-        
-        
     }
-    
+
+
+
     .wrapper{
         width: 90%;
         height: 90%;
         background-color: white;
         border-radius: 20px;
+        padding-top: 40px;
 /*        border: 1px solid green;*/
     }
     
     .content{
         width: 100%;
-/*        border: 1px solid red;*/
-/*        padding: 20px;*/
     }
     
     /*** OnePlant ***/
     
     .onePlantWrapper{
-        width: 100%;
-        height: 120px;
+        width: 94%;
+        height: 140px;
+        margin: 10px;
 /*        border: 1px solid purple; */
         display: flex;
         flex-direction: row;
-        padding: 15px;
+        padding: 10px;
+        border: 1px solid lightgray;
+/*        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+        -webkit-box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
+-moz-box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
+box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
+    
     }
     
     .onePlantImg{
@@ -78,20 +143,28 @@ html, body {
     }
     
     .onePlantText{
-        padding: 20px;
+        padding-top: 5px;
+        padding-left: 15px;
     }
     
-    .onePlantSpecies{
+    .onePlantTitle{
         width: 100%;
-        height: 70px;
-        font-size: 1.2em;
+        height: 30px;
+        font-size: 1.6em;
+/*        border: 1px solid purple;  */
+    }
+
+    .onePlantReadMore{
+        width: 100%;
+        height: 20px;
+        font-size: 1em;
 /*        border: 1px solid purple;  */
     }
     
 /* Water Level Meeter */
     .waterLevelWrapper{
         width: 150px;
-        height: 10px;
+        height: 14px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -99,36 +172,53 @@ html, body {
         border-radius: 20px;
     }
     .waterLevel1{
-        width: 20px;
-        margin: 2px;
-        background-color: aqua;
+        width: 24px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 1px;
+        margin-right: 0px;
+        background-color: #43B1FF;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
     .waterLevel2{
-        width: 20px;
-        margin: 2px;
-        background-color: aqua;
+        width: 25px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #43B1FF;    
     }
     .waterLevel3{
-        width: 20px;
-        margin: 2px;
-        background-color: aqua;
+        width: 25px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #43B1FF;
     }
     .waterLevel4{
-        width: 20px;
-        margin: 2px;
-        background-color: aqua;
+        width: 25px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #43B1FF;
     }
     .waterLevel5{
-        width: 20px;
-        margin: 2px;
-        background-color: aqua;
+        width: 24px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 0px;
+        margin-right: 1px;
+        background-color: #43B1FF;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
     .waterLevel6{
         width: 20px;
         margin: 2px;
-        background-color: aqua;
+        background-color: #43B1FF;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
     }
@@ -204,11 +294,17 @@ html, body {
     
 /*}*/
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 406px) {
     
     .frame{
         width: 375px;
         height: 667px;
+    }
+    
+    .headingWrapper{
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     
 }

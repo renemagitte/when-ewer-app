@@ -12,6 +12,7 @@ class ListOfPlants extends Component {
     }
 
 
+
     createListOfPlants = () => {
         let plantsArray = this.props.plants;
         let onePlantHeading = [];  
@@ -24,13 +25,19 @@ class ListOfPlants extends Component {
                         <img src={plantsArray[i].image} />
                     </div>
                     <div className="onePlantText">
-                        <div className="onePlantSpecies">
-                            {plantsArray[i].species} , {plantsArray[i].lastWatered}
+                        <div className="onePlantTitle">
+                            {plantsArray[i].species}
+                            
+                        </div>
+                        <div className="onePlantReadMore">
+                            <ion-icon name="information-circle-outline"></ion-icon> Läs mer om växten
                         </div>
                         <div>
+                            Vattennivå:
                             <WaterLevel lastWatered={plantsArray[i].lastWatered} 
                                         waterInterval={plantsArray[i].waterInterval}
                                         setView={this.props.setView}/>
+                { /* (Senast vattnad: { plantsArray[i].lastWatered }) */ }
                         </div>
                     </div>
                 </div>
@@ -38,6 +45,7 @@ class ListOfPlants extends Component {
         }
         return(onePlantHeading);   
     }
+    
     
   render() {
 
