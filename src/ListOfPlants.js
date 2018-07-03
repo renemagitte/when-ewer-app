@@ -30,7 +30,7 @@ class ListOfPlants extends Component {
                             
                         </div>
                         <div className="onePlantReadMore">
-                            <ion-icon name="information-circle-outline"></ion-icon> Läs mer om växten
+                            <ion-icon name="information-circle-outline" onClick={() => this.props.setView('infoPlant', plantsArray[i])}></ion-icon> Läs mer om växten
                         </div>
                         <div>
                             Vattennivå:
@@ -54,7 +54,21 @@ class ListOfPlants extends Component {
       
     return (
         <div>
-            <h2>Dina växter</h2>
+            <div className="pageTitleDiv">
+                <div className="floatLeft">
+                    <h2>Dina växter</h2>
+                </div>
+        
+                <div className="floatRight">
+                    <button type="button" className="btn btn-success" onClick={() => this.props.setView('addNewPlant')}> 
+                        <ion-icon name="add" onClick={() => this.props.setView('addNewPlant')}></ion-icon>
+                         Lägg till ny växt
+                    </button>
+                </div>
+
+        
+            </div>
+        
             {this.createListOfPlants()}
         </div>
         

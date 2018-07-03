@@ -34,10 +34,24 @@ html, body {
         font-size: 2em;
         font-weight: 300;
     }
-    
+
+.floatLeft{
+    float: left;
+    width: 62%;
+}
+   
+.floatLRight{
+    float: right;
+    width: 34%;
+}
     .roundify{
         border-radius: 50px;
     }
+
+.pageTitleDiv{
+    width: 100%;
+    padding-left: 15px;
+}
 
     .heading{
 /*        border: 1px solid red;*/
@@ -99,7 +113,7 @@ html, body {
         height: 90%;
         background-color: white;
         border-radius: 20px;
-        padding-top: 40px;
+        padding-top: 85px;
 /*        border: 1px solid green;*/
     }
     
@@ -227,12 +241,39 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
         background-color: #ffffff !important;
     }
     
+/***** Info plant ****/
+
+.infoPlantWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.infoPlantImg{
+    width: 100%;
+}
+.infoPlantImg img{
+    width: 40%;
+}
     
 /***** Add new plant ****/
+
+.addNewPlantWrapper{
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
     
     .addPlantProgress{
         width: 100%;
-        height: 60px;
+        height: 40px;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .addPlantProgressInactive{
+        color: lightgray;
     }
     
     .cameraView{
@@ -291,8 +332,14 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
         color: darkgrey;
         margin: 10px;
     }
+
+.addNewPlantFormHeading{
+    font-size: 1.4em;
+}
     
 /*}*/
+
+
 
 @media screen and (min-width: 406px) {
     

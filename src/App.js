@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/style.css';
 import AddNewPlant from './AddNewPlant';
-import OnePlant from './OnePlant';
+import InfoPlant from './InfoPlant';
 import ListOfPlants from './ListOfPlants';
 
 import handWatch from './img/handWatch.png';
@@ -14,6 +14,7 @@ class App extends Component {
     
     state = {
         view: 'listOfPlants',
+        viewOnePlant: ''
         
     }
 
@@ -21,33 +22,41 @@ class App extends Component {
         /* The two first objects are example objects.
         /* 'lastWatered' & 'waterInterval' is set in Unix time in array */
         {
-            species: "Kaktus", 
+            species: "Pelargon", 
             latinName: "kaktus", 
-            desription: "taggig", 
+            description: "taggig", 
             image: img1, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*1)), // watered 7 days ago
-            waterInterval: 1000*60*60*24*14 // water every 14 days 
+            waterInterval: 1000*60*60*24*14, // water every 14 days 
+            placement: '',
+            info: ''
         },
         {
             species: "Elefantöra", 
             latinName: "kaktus", 
-            desription: "runda blad", 
+            description: "runda blad", 
             image: img2, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*3)),  // watered 3 days ago
-            waterInterval: 1000*60*60*24*5 // water every 5 days
+            waterInterval: 1000*60*60*24*5, // water every 5 days
+            placement: '',
+            info: ''
         }
     ]
 
-    setView = (requestedView) => {
-        this.setState({ view: requestedView });
+    setView = (requestedView, requestedPlant) => {
+        this.setState({ view: requestedView, viewOnePlant: requestedPlant });
     }
 
-    addNewPlant = (speciesInput, descriptionInput) => {
+    addNewPlant = (speciesInput, descriptionInput, latinNameInput, imageInput, lastWateredInput, waterIntervalInput,placementInput, infoInput) => {
         let newPlant = {
             species: speciesInput, 
             description: descriptionInput, 
-            image: img1, 
-            lastWatered: Date.now()
+            latinName: latinNameInput,
+            image: imageInput, 
+            lastWatered: lastWateredInput,
+            waterInterval: waterIntervalInput,
+            placement: placementInput,
+            info: infoInput
         }
         
         this.plants.push(newPlant);
@@ -62,13 +71,13 @@ class App extends Component {
       
     let view;
     if(this.state.view === 'addNewPlant'){
-        view = <AddNewPlant addNewPlant={this.addNewPlant} plants={this.plants} />
+        view = <AddNewPlant addNewPlant={this.addNewPlant} plants={this.plants} setView={this.setView} />
     }
     if(this.state.view === 'listOfPlants'){
-        view = <ListOfPlants plants={this.plants} setView={this.setView}/>
+        view = <ListOfPlants plants={this.plants} setView={this.setView} />
     }
-    if(this.state.view === 'onePlant'){
-        view = <OnePlant plants={this.plants}/>
+    if(this.state.view === 'infoPlant'){
+        view = <InfoPlant plants={this.plants} viewOnePlant={this.state.viewOnePlant} setView={this.setView} />
     }
       
     return (
@@ -104,12 +113,8 @@ class App extends Component {
                 <div className="content">
                 
         
-        <ion-icon name="add-circle" onClick={() => this.setView('addNewPlant')}></ion-icon>
-        
-        
-{ /* <button type="button" className="btn btn-success roundify" onClick={() => this.setView('addNewPlant')}> 
-                        +
-                    </button><br/> */ }
+
+
                     
                 { view }
                     

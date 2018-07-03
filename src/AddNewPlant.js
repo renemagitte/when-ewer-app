@@ -11,9 +11,15 @@ class AddNewPlant extends Component {
     
     state = {
         formstep: 1,
-        input: '',
-        description: '',
         
+        species: '',
+        description: '', 
+        latinName: 'Plantnius Latinimus', 
+        image: photo, 
+        lastWatered: new Date().getTime(), // just watered
+        waterInterval: 1000*60*5, // water every 5 minutes
+        placement: '',
+        info: ''
     }
 
     handleChange = (event) => {
@@ -27,12 +33,21 @@ class AddNewPlant extends Component {
         } 
     }
     
-    setFormStep = () => {
-        this.setState({ formstep: this.state.formstep + 1 })
+    setFormStep = (step) => {
+        this.setState({ formstep: step })
     }
     
     addNewPlant = () => {
-            this.props.addNewPlant(this.state.input, this.state.description);
+            this.props.addNewPlant(
+                this.state.species, 
+                this.state.description,
+                this.state.latinName,
+                this.state.image,
+                this.state.lastWatered,
+                this.state.waterInterval,
+                this.state.placement,
+                this.state.info,
+            );
     }
     
   render() {
@@ -44,15 +59,18 @@ class AddNewPlant extends Component {
       if(this.state.formstep === 1){
           formState = 
             <React.Fragment>
-                <div className="addPlantProgress">
-                Steg 1
+                <div className="pageTitleDiv"> 
+                    <h1>Lägg till ny växt -  steg 1/4</h1>
+          
+          
                 </div>
+          
                 <form /* onSubmit={this.onSubmit} */ >
                     <div className="cameraView">
                         <div className="cameraViewDemoAlert">
                             <div className="cameraViewDemoAlertText">
-                            Tyvärr är inte kamerafunktionen utvecklad<br/>
-                            i denna demoversion. Vänligen tryck "Hoppa över"<br/>
+                            Tyvärr är inte kamerafunktionen utvecklad
+                            i denna demoversion. Tryck på "Hoppa över"
                             längre ner på sidan för att gå vidare.
                             </div>
                         </div>
@@ -63,7 +81,8 @@ class AddNewPlant extends Component {
                             <i className="fas fa-camera cameraIcon"></i>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-info" onClick={this.setFormStep}>Hoppa över</button>
+                    <ion-icon name="arrow-round-back" onClick={() => this.props.setView('listOfPlants')}></ion-icon> Tillbaka<br />
+                    <button type="button" class="btn btn-info" onClick={() => this.setFormStep(2)}>Hoppa över</button>
                 </form>
             </React.Fragment>
       }
@@ -71,44 +90,51 @@ class AddNewPlant extends Component {
       if(this.state.formstep === 2){
           formState = 
               <React.Fragment>
-                <div className="addPlantProgress">
-                Steg 2
+                <div className="pageTitleDiv"> 
+                    <h1>Lägg till ny växt -  steg 2/4</h1>
                 </div>
+          
+          
                 <form /* onSubmit={this.onSubmit} */ >
-                    <FormLabel htmlFor="art" label="Art:" />
-                    <FormInput onChange={this.handleChange} input={this.state.input} name="input" /> 
-                    <FormSubmit className="buttonClass" buttonText="Nästa" onClick={this.setFormStep} />
+                <div className="form-group">
+                    <FormLabel htmlFor="species" label="Art:" className="addNewPlantFormHeading"/>
+                    <FormInput onChange={this.handleChange} input={this.state.species} name="species" /> 
+                    <FormSubmit className="btn btn-primary btn-lg" buttonText="Nästa" onClick={() => this.setFormStep(3)} />
+                </div>
                 </form>
             </React.Fragment>
       }
       if(this.state.formstep === 3){
           formState = 
               <React.Fragment>
-                <div className="addPlantProgress">
-                Steg 3
-                </div>
-                <FormLabel htmlFor="description" label="Beskrivning:" />
-                <FormInput onChange={this.handleChange} input={this.state.description} name="description" /> 
-                Du kan redigera denna information senare om du vill.
-                <FormSubmit className="buttonClass" buttonText="Nästa" onClick={this.addNewPlant} />
+                    <div className="pageTitleDiv"> 
+                        <h1>Lägg till ny växt -  steg 3/4</h1>
+                    </div>
+                    <FormLabel htmlFor="description" label="Beskrivning:" />
+                    <FormInput onChange={this.handleChange} input={this.state.description} name="description" placeholder={'T.ex. ' + this.state.species + ' i köksfönstret'}/> 
+                    Du kan redigera denna information senare om du vill.
+                    <FormSubmit className="btn btn-primary btn-lg" buttonText="Nästa" onClick={() => this.setFormStep(4)} />
           
               </React.Fragment>
       }
-//      if(this.state.formstep === 4){
-//          formState = 
-//              <React.Fragment>
-//                <div className="addPlantProgress">
-//                Steg 4
-//                </div>
-//                <FormLabel htmlFor="description" label="Beskrivning:" />
-//                <FormInput onChange={this.handleChange} input={this.state.description} name="description" /> 
-//                <FormSubmit className="buttonClass" buttonText="Lägg till" onClick={this.addPlant} />
-//              </React.Fragment>
-//      }
+      
+      if(this.state.formstep === 4){
+          formState = 
+              <React.Fragment>
+                    <div className="pageTitleDiv"> 
+                        <h1>Lägg till ny växt -  steg 4/4</h1><br/>
+                        Granska information:
+                    </div>
+
+          
+          
+                    <FormSubmit className="btn btn-primary btn-lg" buttonText="LÄGG TILL VÄXT" onClick={this.addNewPlant} />
+          
+              </React.Fragment>
+      }
       
     return (
-        <div>
-            <h1>Lägg till ny växt</h1>
+        <div className="addNewPlantWrapper">
 
                 { formState }
 
