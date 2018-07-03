@@ -18,8 +18,8 @@ class AddNewPlant extends Component {
         image: photo, 
         lastWatered: new Date().getTime(), // just watered
         waterInterval: 1000*60*5, // water every 5 minutes
-        placement: '',
-        info: ''
+        placement: 'Soligt',
+        info: 'Denna fantasiväxt bör vattnas ungefär var femte minut. Den trivs bäst i starkt solljus och bör planteras om varje vår.'
     }
 
     handleChange = (event) => {
@@ -110,7 +110,7 @@ class AddNewPlant extends Component {
                     <div className="pageTitleDiv"> 
                         <h1>Lägg till ny växt -  steg 3/4</h1>
                     </div>
-                    <FormLabel htmlFor="description" label="Beskrivning:" />
+                    <FormLabel htmlFor="description" label="Lägg till en rubrik för din växt:" />
                     <FormInput onChange={this.handleChange} input={this.state.description} name="description" placeholder={'T.ex. ' + this.state.species + ' i köksfönstret'}/> 
                     Du kan redigera denna information senare om du vill.
                     <FormSubmit className="btn btn-primary btn-lg" buttonText="Nästa" onClick={() => this.setFormStep(4)} />
@@ -122,9 +122,25 @@ class AddNewPlant extends Component {
           formState = 
               <React.Fragment>
                     <div className="pageTitleDiv"> 
-                        <h1>Lägg till ny växt -  steg 4/4</h1><br/>
-                        Granska information:
+                        <h1>Lägg till ny växt -  steg 4/4</h1><br/>                                 
                     </div>
+                    <div className="confirmWrapper">
+                        <div className="confirmValue"><h1>Granska information:</h1></div>
+          
+                        <div className="onePlantImg">
+                            <img src={this.state.image} />
+                        </div>
+                        <div className="confirmKey">Din beskrivning: </div>
+                        <div className="confirmValue">{this.state.description}</div>
+                        <div className="confirmKey">Växtart: </div>
+                        <div className="confirmValue">{this.state.species} ({this.state.latinName})</div>
+                        
+                        <div className="confirmKey">Skötselråd: </div>
+                        <div className="confirmValue">Placera {this.state.placement} och vattna ungefär var {((this.state.waterInterval/1000) / 60)}:e dag. Appen kommer att påminna dig om detta.</div>
+                                                                                           
+                        <div className="confirmKey">Info om arten:</div>
+                        <div className="confirmValue">{this.state.info}</div>
+                    </div>                          
 
           
           

@@ -3,6 +3,7 @@ import './css/style.css';
 import AddNewPlant from './AddNewPlant';
 import InfoPlant from './InfoPlant';
 import ListOfPlants from './ListOfPlants';
+import Notification from './Notification';
 
 import handWatch from './img/handWatch.png';
 import ewer from './img/ewer.png';
@@ -78,6 +79,9 @@ class App extends Component {
     }
     if(this.state.view === 'infoPlant'){
         view = <InfoPlant plants={this.plants} viewOnePlant={this.state.viewOnePlant} setView={this.setView} />
+    }
+    if(this.state.view === 'notification'){
+        view = <Notification setView={this.setView} viewOnePlant={this.state.viewOnePlant} />
     }
       
     return (

@@ -336,6 +336,25 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
 .addNewPlantFormHeading{
     font-size: 1.4em;
 }
+
+
+.confirmWrapper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.confirmKey{
+    width: 100%;
+    background-color: lightgray;
+    font-size: 1.2em;
+}
+
+.confirmValue{
+    width: 100%;   
+}
     
 /*}*/
 

@@ -36,7 +36,9 @@ class ListOfPlants extends Component {
                             Vattennivå:
                             <WaterLevel lastWatered={plantsArray[i].lastWatered} 
                                         waterInterval={plantsArray[i].waterInterval}
-                                        setView={this.props.setView}/>
+                                        setView={this.props.setView}
+                                        viewOnePlant={plantsArray[i]}
+                            />
                 { /* (Senast vattnad: { plantsArray[i].lastWatered }) */ }
                         </div>
                     </div>

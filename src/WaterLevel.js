@@ -44,7 +44,7 @@ class WaterLevel extends Component {
             if (this.state.nextWaterTime > this.state.currentTime ) { 
                 this.setState({ currentTime: new Date().getTime() });  
             }else{
-               this.props.setView('notification'); 
+               this.props.setView('notification', this.props.viewOnePlant); 
             }
       }
 
