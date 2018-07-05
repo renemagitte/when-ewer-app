@@ -17,7 +17,7 @@ class AddNewPlant extends Component {
         latinName: 'Plantnius Latinimus', 
         image: photo, 
         lastWatered: new Date().getTime(), // just watered
-        waterInterval: 1000*60*5, // water every 5 minutes
+        waterInterval: 1000*60*0.5, // water every 1/2 minutes
         placement: 'Soligt',
         info: 'Denna fantasiväxt bör vattnas ungefär var femte minut. Den trivs bäst i starkt solljus och bör planteras om varje vår.'
     }
@@ -81,8 +81,14 @@ class AddNewPlant extends Component {
                             <i className="fas fa-camera cameraIcon"></i>
                         </div>
                     </div>
-                    <ion-icon name="arrow-round-back" onClick={() => this.props.setView('listOfPlants')}></ion-icon> Tillbaka<br />
-                    <button type="button" class="btn btn-info" onClick={() => this.setFormStep(2)}>Hoppa över</button>
+                    <div className="standardFlex">
+                        <div className="backDiv">
+                            <ion-icon name="arrow-round-back" onClick={() => this.props.setView('listOfPlants')}></ion-icon> Tillbaka<br />
+                        </div>
+                        <div className="nextDiv">
+                            <button type="button" class="btn btn-info" onClick={() => this.setFormStep(2)}>Hoppa över</button>
+                        </div>
+                    </div>
                 </form>
             </React.Fragment>
       }

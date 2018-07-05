@@ -16,6 +16,7 @@ class WaterLevel extends Component {
         waterInterval3: '',
         waterInterval2: '',
         waterInterval1: '',
+        notification: false
         
     }
 
@@ -31,22 +32,90 @@ class WaterLevel extends Component {
             waterInterval4: this.props.lastWatered + (this.props.waterInterval*0.4),
             waterInterval3: this.props.lastWatered + (this.props.waterInterval*0.6),
             waterInterval2: this.props.lastWatered + (this.props.waterInterval*0.8),
-            waterInterval1: this.props.lastWatered + (this.props.waterInterval),
+            waterInterval1: this.props.lastWatered + (this.props.waterInterval)
         })
         
         setInterval(
           () => this.setTime(),
-          1000*60 // Update 1 time per minute
+          1000 // Update 1 time per second
         );        
     }
 
       setTime = () => {   
             if (this.state.nextWaterTime > this.state.currentTime ) { 
                 this.setState({ currentTime: new Date().getTime() });  
-            }else{
-               this.props.setView('notification', this.props.viewOnePlant); 
+            }
+          else{
+//               this.props.setView('notification', this.props.viewOnePlant); 
+                this.setState({ notification: true  })
             }
       }
+      
+      setLastWatered = () => {
+          this.setState({ lastWatered: new Date().getTime(), 
+                          nextWaterTime: new Date().getTime() + this.props.waterInterval,
+                          waterInterval5: ((new Date().getTime()) + (this.props.waterInterval*0.2)),
+                          waterInterval4: ((new Date().getTime()) + (this.props.waterInterval*0.4)),
+                          waterInterval3: ((new Date().getTime()) + (this.props.waterInterval*0.6)),
+                          waterInterval2: ((new Date().getTime()) + (this.props.waterInterval*0.8)),
+                          waterInterval1: ((new Date().getTime()) + (this.props.waterInterval))
+                        
+                        })
+//        this.setState({ nextWaterTime: new Date().getTime() + this.props.waterInterval })  
+          
+//          this.setState({ nextWaterTime: this.state.lastWatered + this.props.waterInterval })
+          
+//            this.setState({ 
+//                waterInterval5: this.state.lastWatered + (this.props.waterInterval*0.2),
+//                waterInterval4: this.state.lastWatered + (this.props.waterInterval*0.4),
+//                waterInterval3: this.state.lastWatered + (this.props.waterInterval*0.6),
+//                waterInterval2: this.state.lastWatered + (this.props.waterInterval*0.8),
+//                waterInterval1: this.state.lastWatered + (this.props.waterInterval)
+//            })
+   
+//          this.resetWaterLevels();
+          
+          this.setState({ notification: false  })
+//        this.setState({ nextWaterTime: this.state.lastWatered + this.props.waterInterval })   
+//          this.resetWaterLevels();
+          
+}
+          
+          
+//          this.setState({
+//    someState: obj
+//}, () => {
+//    this.afterSetStateFinished();
+//});
+          
+          
+          
+          
+          
+      
+      setNotificationFalse = () => {
+          this.setState({ notification: false  })
+      } 
+      
+      resetWaterLevels = () => {
+            
+            this.setState({ 
+                waterInterval5: this.state.lastWatered + (this.props.waterInterval*0.2),
+                waterInterval4: this.state.lastWatered + (this.props.waterInterval*0.4),
+                waterInterval3: this.state.lastWatered + (this.props.waterInterval*0.6),
+                waterInterval2: this.state.lastWatered + (this.props.waterInterval*0.8),
+                waterInterval1: this.state.lastWatered + (this.props.waterInterval)
+            })
+          
+      }
+      
+//      setNotificationFalse = () => {
+//          this.setState({ notification: false  })
+//      }
+//      
+//      setNotification = () => {
+//        this.setState({ notification: true  })
+//      }
 
 
 
@@ -74,22 +143,50 @@ class WaterLevel extends Component {
             waterLevel2 += ' waterLevelEmpty';
         }
 
-
         let waterLevel1 = 'waterLevel1';
         if(this.state.currentTime > this.state.waterInterval1){
             waterLevel1 += ' waterLevelEmpty';
         }
 
+        let notification = ''
+        if(this.state.notification){
+            notification = 
+              
+                <React.Fragment>
+                    <div className="notificationBg">
+                        
+                        <div className="notificationBox">
+                            <h1> HEEEEEEEEj </h1>
+                           <div className="onePlantImg">
+                                <img src={this.props.viewOnePlant.image} />
+                            </div>
+                        <button type="button" class="btn btn-info" onClick={this.setNotificationFalse}>
+                            <ion-icon name="notifications-off"></ion-icon>
+                            Nej tack. Kanske senare.
+                        </button>
+                        <button type="button" class="btn btn-info" onClick={this.setLastWatered}>
+                            <ion-icon name="checkmark"></ion-icon>
+                            Vattnad
+                        </button>
+                        </div>
+                    </div>
+                </React.Fragment>
+             
+        }
+        
       
       
         return (
-            <div className="waterLevelWrapper">
-                <div className={waterLevel1}></div>
-                <div className={waterLevel2}></div>
-                <div className={waterLevel3}></div>
-                <div className={waterLevel4}></div>
-                <div className={waterLevel5}></div>
-            </div>
+            <React.Fragment>
+            { notification }
+                <div className="waterLevelWrapper">
+                    <div className={waterLevel1}></div>
+                    <div className={waterLevel2}></div>
+                    <div className={waterLevel3}></div>
+                    <div className={waterLevel4}></div>
+                    <div className={waterLevel5}></div>
+                </div>
+            </React.Fragment>
 
         );
       }
