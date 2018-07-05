@@ -156,18 +156,32 @@ class WaterLevel extends Component {
                     <div className="notificationBg">
                         
                         <div className="notificationBox">
-                            <h1> HEEEEEEEEj </h1>
-                           <div className="onePlantImg">
-                                <img src={this.props.viewOnePlant.image} />
+                            <div class="notificationBoxInner">
+                                <h1> Vi åberopar din inre trädgårdsmästare! </h1>
                             </div>
-                        <button type="button" class="btn btn-info" onClick={this.setNotificationFalse}>
-                            <ion-icon name="notifications-off"></ion-icon>
-                            Nej tack. Kanske senare.
-                        </button>
-                        <button type="button" class="btn btn-info" onClick={this.setLastWatered}>
-                            <ion-icon name="checkmark"></ion-icon>
-                            Vattnad
-                        </button>
+                           <div class="notificationBoxInner">
+                                <div className="onePlantImg">
+                                        <img src={this.props.viewOnePlant.image} />
+                                </div>
+                            </div>
+                          <div class="notificationBoxInner">
+                                {this.props.viewOnePlant.description}
+                            </div>
+                          <div class="notificationBoxInner">
+                              behöver vattnas!
+                         </div>
+                          <div class="notificationBoxInner">
+                                <button type="button" class="btn btn-danger btn-lg" onClick={this.setNotificationFalse}>
+                                    <ion-icon name="notifications-off"></ion-icon>
+                                    Nej tack. Kanske senare.
+                                </button>
+                         </div>
+                          <div class="notificationBoxInner">
+                                <button type="button" class="btn btn-success btn-lg" onClick={this.setLastWatered}>
+                                    <ion-icon name="checkmark"></ion-icon>
+                                    Vattnad
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </React.Fragment>

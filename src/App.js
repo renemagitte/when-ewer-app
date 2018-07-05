@@ -87,6 +87,15 @@ class App extends Component {
     return (
         
         <React.Fragment>
+        
+                    <div className="desktopError">
+               { /* <div className="desktopErrorImg"><img src={ewer} /></div> */ }
+      <p><img src={ewer} /></p>
+                Tyvärr! Denna applikation är endast anpassad<br/> 
+                till skärmar med maxbredd 406 pixlar.
+            </div>
+        
+        
                 <div className="headingWrapper">
                 <div className="heading">
                     <div className="headingLeft">
