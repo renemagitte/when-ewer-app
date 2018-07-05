@@ -18,7 +18,7 @@ class AddNewPlant extends Component {
         image: photo, 
         lastWatered: new Date().getTime(), // just watered
         waterInterval: 1000*60*0.5, // water every 1/2 minutes
-        placement: 'Soligt',
+        placement: 'soligt',
         info: 'Denna fantasiväxt bör vattnas ungefär var femte minut. Den trivs bäst i starkt solljus och bör planteras om varje vår.'
     }
 
@@ -83,10 +83,12 @@ class AddNewPlant extends Component {
                     </div>
                     <div className="standardFlex">
                         <div className="backDiv">
-                            <ion-icon name="arrow-round-back" onClick={() => this.props.setView('listOfPlants')}></ion-icon> Tillbaka<br />
+                            <button type="button" class="btn btn-secondary btn-lg" onClick={() => this.props.setView('listOfPlants')}>
+                            <ion-icon name="arrow-round-back"></ion-icon> Tillbaka
+                            </button>
                         </div>
                         <div className="nextDiv">
-                            <button type="button" class="btn btn-info" onClick={() => this.setFormStep(2)}>Hoppa över</button>
+                            <button type="button" class="btn btn-info btn-lg" onClick={() => this.setFormStep(2)}>Hoppa över</button>
                         </div>
                     </div>
                 </form>
@@ -104,8 +106,18 @@ class AddNewPlant extends Component {
                 <form /* onSubmit={this.onSubmit} */ >
                 <div className="form-group">
                     <FormLabel htmlFor="species" label="Art:" className="addNewPlantFormHeading"/>
-                    <FormInput onChange={this.handleChange} input={this.state.species} name="species" /> 
+                    <FormInput onChange={this.handleChange} input={this.state.species} name="species" />
+                        
+                <div className="standardFlex">
+                        <div className="backDiv">
+                            <button type="button" class="btn btn-secondary btn-lg" onClick={() => this.setFormStep(1)}>
+                            <ion-icon name="arrow-round-back"></ion-icon> Tillbaka
+                            </button>
+                        </div>
+                        <div className="nextDiv">
                     <FormSubmit className="btn btn-primary btn-lg" buttonText="Nästa" onClick={() => this.setFormStep(3)} />
+                  </div>
+                  </div>
                 </div>
                 </form>
             </React.Fragment>
@@ -119,8 +131,17 @@ class AddNewPlant extends Component {
                     <FormLabel htmlFor="description" label="Lägg till en rubrik för din växt:" />
                     <FormInput onChange={this.handleChange} input={this.state.description} name="description" placeholder={'T.ex. ' + this.state.species + ' i köksfönstret'}/> 
                     Du kan redigera denna information senare om du vill.
+                        
+                <div className="standardFlex">
+                        <div className="backDiv">
+                            <button type="button" class="btn btn-secondary btn-lg"  onClick={() => this.setFormStep(2)}>
+                            <ion-icon name="arrow-round-back"></ion-icon> Tillbaka
+                            </button>
+                        </div>
+                        <div className="nextDiv">
                     <FormSubmit className="btn btn-primary btn-lg" buttonText="Nästa" onClick={() => this.setFormStep(4)} />
-          
+                    </div>
+                </div>
               </React.Fragment>
       }
       

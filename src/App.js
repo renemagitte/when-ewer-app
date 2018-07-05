@@ -25,17 +25,17 @@ class App extends Component {
         {
             species: "Pelargon", 
             latinName: "kaktus", 
-            description: "taggig", 
+            description: "Pelargon (rosa)", 
             image: img1, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*1)), // watered 7 days ago
-            waterInterval: 1000*60*60*24*14, // water every 14 days 
+            waterInterval: 1000*60*60*24*7, // water every 14 days 
             placement: '',
             info: ''
         },
         {
             species: "Elefantöra", 
             latinName: "kaktus", 
-            description: "runda blad", 
+            description: "Elefantöra", 
             image: img2, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*3)),  // watered 3 days ago
             waterInterval: 1000*60*60*24*5, // water every 5 days

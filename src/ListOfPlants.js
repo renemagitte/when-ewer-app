@@ -26,7 +26,7 @@ class ListOfPlants extends Component {
                     </div>
                     <div className="onePlantText">
                         <div className="onePlantTitle">
-                            {plantsArray[i].species}
+                            {plantsArray[i].description}
                             
                         </div>
                         <div className="onePlantReadMore">
