@@ -29,8 +29,8 @@ class ListOfPlants extends Component {
                             {plantsArray[i].description}
                             
                         </div>
-                        <div className="onePlantReadMore">
-                            <ion-icon name="information-circle-outline" onClick={() => this.props.setView('infoPlant', plantsArray[i])}></ion-icon> Läs mer om växten
+                        <div className="onePlantReadMore"  onClick={() => this.props.setView('infoPlant', plantsArray[i])}>
+                            <ion-icon name="information-circle-outline"></ion-icon> Läs mer om växten.
                         </div>
                         <div>
                             Vattennivå:

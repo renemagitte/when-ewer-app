@@ -157,7 +157,8 @@ class AddNewPlant extends Component {
                         <div className="onePlantImg">
                             <img src={this.state.image} />
                         </div>
-                        <div className="confirmKey">Din beskrivning: </div>
+          
+                         <div className="confirmKey">Din beskrivning: </div>
                         <div className="confirmValue">{this.state.description}</div>
                         <div className="confirmKey">Växtart: </div>
                         <div className="confirmValue">{this.state.species} ({this.state.latinName})</div>

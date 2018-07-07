@@ -24,23 +24,23 @@ class App extends Component {
         /* 'lastWatered' & 'waterInterval' is set in Unix time in array */
         {
             species: "Pelargon", 
-            latinName: "kaktus", 
+            latinName: "Pelargonium", 
             description: "Pelargon (rosa)", 
             image: img1, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*1)), // watered 7 days ago
             waterInterval: 1000*60*60*24*7, // water every 14 days 
-            placement: '',
-            info: ''
+            placement: 'bör stå i ett varmt och soligt fönster.',
+            info: 'Pelargonerna är komplexa hybridger inom gruppen näveväxter, med flertalet olika föräldra-arter. Till de mer framstående förfädrarna ingår dock smutspelargon. En vanligt förekommande färg på pelargonen är färgen lax. Pelargonen är både älskad och vanlig, men också ett samlarobjekt. Den finns i mindre storlekar så som miniatyrpelargon och mikrominiatyrpelargon. (Källa: Wikipedia)'
         },
         {
             species: "Elefantöra", 
-            latinName: "kaktus", 
+            latinName: "Pilea peperomioides", 
             description: "Elefantöra", 
             image: img2, 
             lastWatered: ((new Date().getTime()) - (1000*60*60*24*3)),  // watered 3 days ago
             waterInterval: 1000*60*60*24*5, // water every 5 days
             placement: '',
-            info: ''
+            info: 'Elefantöra, även kallad parasollpilea, är en rundbladig växt från Kina som introducerades i Skandinavien år 1946.'
         }
     ]
 
@@ -95,8 +95,7 @@ class App extends Component {
                 till skärmar med maxbredd 406 pixlar.
             </div>
         
-        
-                <div className="headingWrapper">
+        { /* <div className="headingWrapper"> */ }
                 <div className="heading">
                     <div className="headingLeft">
                         <img src={handWatch} />
@@ -110,7 +109,8 @@ class App extends Component {
         
                     </div>
                 </div>
-                </div>
+        { /* </div> */ }
+
         
         
         <div className="desktopField">

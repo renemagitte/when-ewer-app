@@ -14,6 +14,14 @@
     box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);    
 }
 
+.standard{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .standardFlex{
     width: 100%;
     display: flex;
@@ -43,6 +51,12 @@ html, body {
         font-weight: 300;
     }
 
+    h3{
+        font-family: 'Nunito', sans-serif; 
+        font-size: 1.2em;
+        font-weight: 300;
+    }
+
 .floatLeft{
     float: left;
     width: 62%;
@@ -62,8 +76,7 @@ html, body {
 }
 
     .heading{
-/*        border: 1px solid red;*/
-        width: 406px;
+        width: 100%;
         z-index: 98;
         position: absolute;
         left: 0px;
@@ -73,36 +86,47 @@ html, body {
     }
     
         .headingLeft{
-            width: 140px;
-/*
-            margin-top: -20px;
-            margin-left: -20px;
-*/
-/*            border: 1px solid hotpink;*/
+/*            width: 140px;*/
+            width: 35%;
             align-self: flex-start;
+            margin-left: -10px;
         }
-        .headingLeft img{
-            width: 140px;
-        }
+            .headingLeft img{
+                width: 130px;
+/*                width: 80%;*/
+            }
+@media screen and (max-width: 340px) {
+            .headingLeft img{
+                width: 100px;
+    }
+}
 
         .appName{
-            width: 146px;
+/*            width: 146px;*/
+            width: 35%;
             text-align: center;
-/*            border: 1px solid green;*/
             align-self: center;
             font-size: 2.8em;
             line-height: 1;
         }
 
         .headingRight{
-            width: 120px;
-/*            border: 1px solid hotpink;*/
+/*            width: 120px;*/
+            width: 30%;
             align-self: flex-end;
+            align-content: flex-end;
             margin-top: -20px;
         }
-        .headingRight img{
-            height: 120px;
-        }
+            .headingRight img{
+                
+                height: 120px;
+/*                width: 80%;*/
+            }
+@media screen and (max-width: 340px) {
+            .headingRight img{
+                height: 100px;
+            }
+}
 
 
     .frame{
@@ -180,7 +204,9 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
     .onePlantReadMore{
         width: 100%;
         height: 20px;
-        font-size: 1em;
+        font-size: 1.2em;
+        cursor: pointer;
+        color: darkgray;
 /*        border: 1px solid purple;  */
     }
     
@@ -254,9 +280,11 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
 
 .infoPlantWrapper{
     width: 100%;
+/*
     display: flex;
     flex-direction: row;
     justify-content: center;
+*/
 }
 
 .infoPlantImg{
@@ -366,8 +394,8 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
 
 .confirmKey{
     width: 100%;
-    background-color: lightgray;
     font-size: 1.2em;
+    padding-top: 5px;
 }
 
 .confirmValue{
@@ -422,11 +450,6 @@ box-shadow: 1px 6px 24px -8px rgba(0,0,0,0.89);
         height: 667px;
     }
     
-    .headingWrapper{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
     
 .notificationBg{
     margin-left: 50%;
